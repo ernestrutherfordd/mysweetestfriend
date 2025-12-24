@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merry Christmas & Happy Birthday</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Nunito',sans-serif;
+  background:#000;
+  overflow:hidden;
+}
+
+/* ===== PAGE ===== */
+.page{
+  position:absolute;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+.page.active{display:flex}
+
+/* ===== BACKGROUND ===== */
+.bg-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:-1;
+}
+
+/* ===== BUTTON ===== */
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  background:#b11226;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+button:hover{transform:scale(1.05)}
+
+/* ===== PAGE 1 ===== */
+.hero{
+  animation:fadeUp 1.4s ease;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.7rem;
+}
+.hero p{margin:20px 0}
+
+/* ===== LETTER ===== */
+.letter{
+  background:#f3d9b1;
+  color:#4b1b1b;
+  padding:40px;
+  width:85%;
+  max-width:500px;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+  animation:openLetter 1s ease;
+  max-height:75vh;
+  overflow-y:auto;
+}
+.letter h2{
+  font-family:'Playfair Display',serif;
+  color:#8b0000;
+}
+.letter p{
+  margin-top:15px;
+  line-height:1.8;
+}
+
+/* ===== FORTUNE ===== */
+.fortune-box{
+  background:rgba(255,255,255,.93);
+  color:#8b0000;
+  padding:35px;
+  border-radius:18px;
+  width:85%;
+  max-width:420px;
+  animation:fadeUp 1s ease;
+}
+.fortune-box h3{
+  font-family:'Playfair Display',serif;
+}
+.fortune-text{
+  margin:20px 0;
+  font-size:1.1rem;
+}
+
+/* ===== NAV ===== */
+.nav{
+  margin-top:20px;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+
+/* ===== SNOW ===== */
+.snow{
+  position:fixed;
+  top:-10px;
+  color:white;
+  animation:snowfall linear infinite;
+  opacity:.8;
+  pointer-events:none;
+}
+
+@keyframes snowfall{
+  to{transform:translateY(110vh)}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes openLetter{
+  from{transform:scale(.85);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="bgm" loop>
+  <source src="Wham! - Last Christmas (Lyrics).mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== PAGE 1 ===== -->
+<div class="page active" id="page1">
+  <img src="shark.jpeg" class="bg-img">
+  <div class="overlay"></div>
+  <div class="hero">
+    <h1>🎄🎂 Merry Christmas<br>and Happy Birthday</h1>
+    <p>this little gift is only for you, my talyda 🤍</p>
+    <button onclick="openGift()">Open</button>
+  </div>
+</div>
+
+<!-- ===== PAGE 2 ===== -->
+<div class="page" id="page2">
+  <img src="cuteas.jpeg" class="bg-img">
+  <div class="overlay"></div>
+  <div class="letter">
+    <h2>dear talyda 🎄🎂</h2>
+    <p>
+      happy birthday and merry christmas, talyda 🎂🎄🤍 <br><br>
+
+      sometimes i think about how easily you became such an important part of my life. everything about our friendship feels calm and natural, like it never needed to be forced. you’re the kind of person who brings warmth just by being yourself, and i’m really grateful to have you as a friend. <br><br>
+
+     on your birthday, i want to wish you a year that feels gentle and kind to you. i hope this new age brings you calmer days, softer nights, and moments where you feel truly at peace with yourself. semoga di umur baru ini, kamu dikelilingi hal-hal baik, orang-orang yang tulus, dan perasaan aman yang bikin hati kamu tenang.
+      <br><br>
+      and merry christmas to you 🤍 i hope this season wraps you in comfort and warmth, like a soft reminder that you are loved and appreciated. semoga natal ini membawa ketenangan, harapan kecil yang tumbuh pelan-pelan, dan rasa syukur atas hal-hal sederhana yang sering terlewat.<br><br>
+      i wish for your days to feel lighter and your heart to feel safer. i hope life meets you with the same kindness you give to others, and that your dreams find their way to you, one step at a time. semoga langkah kamu ke depan selalu dipermudah, dan semoga kamu selalu percaya kalau kamu pantas dapet kebahagiaan<br><br>
+      thank you for being such a sincere and caring friend. i’m really glad our paths crossed back in june, and i hope our friendship keeps growing in the softest, most honest way.n<br><br>
+      with love,<br>
+      ernest
+    </p>
+    <div class="nav">
+      <button onclick="goPage(1)">Back</button>
+      <button onclick="goPage(3)">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 3 ===== -->
+<div class="page" id="page3">
+  <img src="Snoopy Christmas Wallpapers.jpeg" class="bg-img">
+  <div class="overlay"></div>
+  <div class="fortune-box">
+    <h3> birthday & christmas fortune</h3>
+    <div class="fortune-text" id="fortune"></div>
+    <div class="nav">
+      <button onclick="newFortune()">Open Again </button>
+      <button onclick="goPage(2)">Back</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const bgm = document.getElementById("bgm");
+
+function openGift(){
+  goPage(2);
+  if(bgm.paused){bgm.play().catch(()=>{});}
+}
+function goPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page'+n).classList.add('active');
+}
+
+/* ===== FORTUNES (BANYAK) ===== */
+const fortunes = [
+"this year will be gentle with you 🤍",
+"your heart will feel lighter",
+"good surprises are coming",
+"you are deeply loved",
+"your dreams are protected",
+"warm days are ahead",
+"peace walks beside you",
+"someone is proud of you",
+"you deserve soft happiness",
+"kindness returns to you",
+"your presence matters",
+"joy will find you quietly",
+
+"birthday wishes are listening 🎂",
+"christmas warmth stays with you 🎄",
+"you are entering a calmer chapter",
+"your efforts are not unseen",
+"someone silently roots for you",
+"your days will feel warmer",
+"you bring comfort to others",
+"hope is closer than you think",
+"you are doing better than you realize",
+
+"soft mornings are coming",
+"gentle love surrounds you",
+"luck walks slowly beside you",
+"your story matters deeply",
+"small joys will find you",
+"you are growing beautifully",
+"warm hugs are waiting",
+"your happiness matters",
+
+"you will laugh more this year",
+"your tears won’t be wasted",
+"someone misses you fondly",
+"good news will surprise you",
+"your kindness echoes back",
+"you are allowed to rest",
+"peace chooses you",
+
+"birthday magic is real ✨",
+"you are wrapped in warmth",
+"your smile heals",
+"you inspire someone",
+"soft miracles exist",
+"everything will unfold gently"
+];
+
+function newFortune(){
+  document.getElementById("fortune").innerText =
+    fortunes[Math.floor(Math.random()*fortunes.length)];
+}
+newFortune();
+
+/* ===== SNOW ===== */
+for(let i=0;i<60;i++){
+  const s=document.createElement('div');
+  s.className='snow';
+  s.innerText='❄';
+  s.style.left=Math.random()*100+'vw';
+  s.style.fontSize=10+Math.random()*20+'px';
+  s.style.animationDuration=5+Math.random()*10+'s';
+  document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
